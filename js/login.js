@@ -1,4 +1,4 @@
-// Login functionality
+// Login functionality is now handled in script.js
 
 class LoginForm {
     constructor() {
@@ -45,22 +45,6 @@ class LoginForm {
         this.passwordInput.addEventListener('input', () => {
             this.clearError(this.passwordInput, 'passwordError');
         });
-        
-        // Social login buttons
-        const googleBtn = document.querySelector('.btn-google');
-        const facebookBtn = document.querySelector('.btn-facebook');
-        
-        if (googleBtn) {
-            googleBtn.addEventListener('click', () => {
-                this.handleSocialLogin('Google');
-            });
-        }
-        
-        if (facebookBtn) {
-            facebookBtn.addEventListener('click', () => {
-                this.handleSocialLogin('Facebook');
-            });
-        }
     }
     
     togglePasswordVisibility() {
@@ -243,10 +227,6 @@ class LoginForm {
             this.submitBtn.disabled = false;
             this.submitBtn.textContent = 'Sign In';
         }
-    }
-    
-    handleSocialLogin(provider) {
-        showMessage(`${provider} login is not implemented in this demo. Please use the form above.`, 'info');
     }
     
     loadSavedCredentials() {

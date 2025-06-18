@@ -206,11 +206,7 @@ class DestinationDetails {
     }
     
     updateMap(coordinates) {
-        const mapFrame = document.getElementById('destinationMap');
-        if (coordinates && mapFrame) {
-            const mapUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${coordinates.lat},${coordinates.lng}&zoom=12`;
-            mapFrame.src = mapUrl;
-        }
+        // Removed Google Maps API usage
     }
     
     loadReviews() {

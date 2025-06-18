@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TravelGuide - Your Ultimate Travel Companion</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
+    <header class="header" role="banner">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <h1>TravelGuide</h1>
+                    <h1 id="siteTitle" class="site-title-gradient">TravelGuide</h1>
                 </div>
-                <nav class="nav">
+                <nav class="nav" aria-label="Main Navigation">
                     <ul class="nav-list">
                         <li><a href="index.html" class="nav-link active">Home</a></li>
                         <li><a href="search.html" class="nav-link">Search</a></li>
@@ -23,7 +23,7 @@
                         <li><a href="register.html" class="nav-link">Register</a></li>
                     </ul>
                 </nav>
-                <div class="mobile-menu-toggle">
+                <div class="mobile-menu-toggle" aria-label="Open navigation menu" aria-expanded="false" tabindex="0" role="button">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -33,9 +33,47 @@
     </header>
 
     <!-- Hero Section with Carousel -->
-    <section class="hero">
+    <main>
+    <section class="hero" aria-label="Featured Destinations Carousel">
         <div class="carousel">
-            <div class="carousel-container">
+            <div class="swiper hero-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="hero-content">
+                            <h2>Discover Amazing Destinations</h2>
+                            <p>Explore the world's most beautiful places and create unforgettable memories</p>
+                            <a href="search.html" class="btn btn-primary">Start Exploring</a>
+                        </div>
+                        <div class="hero-image">
+                            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80" alt="Beautiful mountain landscape">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="hero-content">
+                            <h2>Experience Local Culture</h2>
+                            <p>Immerse yourself in diverse cultures and traditions around the globe</p>
+                            <a href="search.html" class="btn btn-primary">Find Culture</a>
+                        </div>
+                        <div class="hero-image">
+                            <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2079&q=80" alt="Cultural city street">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="hero-content">
+                            <h2>Adventure Awaits</h2>
+                            <p>From beaches to mountains, find your next adventure destination</p>
+                            <a href="search.html" class="btn btn-primary">Find Adventure</a>
+                        </div>
+                        <div class="hero-image">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Adventure mountain climbing">
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+            <noscript>
                 <div class="carousel-slide active">
                     <div class="hero-content">
                         <h2>Discover Amazing Destinations</h2>
@@ -43,42 +81,15 @@
                         <a href="search.html" class="btn btn-primary">Start Exploring</a>
                     </div>
                     <div class="hero-image">
-                        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80" alt="Beautiful mountain landscape">
+                        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80" alt="Beautiful mountain landscape">
                     </div>
                 </div>
-                <div class="carousel-slide">
-                    <div class="hero-content">
-                        <h2>Experience Local Culture</h2>
-                        <p>Immerse yourself in diverse cultures and traditions around the globe</p>
-                        <a href="search.html" class="btn btn-primary">Find Culture</a>
-                    </div>
-                    <div class="hero-image">
-                        <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2079&q=80" alt="Cultural city street">
-                    </div>
-                </div>
-                <div class="carousel-slide">
-                    <div class="hero-content">
-                        <h2>Adventure Awaits</h2>
-                        <p>From beaches to mountains, find your next adventure destination</p>
-                        <a href="search.html" class="btn btn-primary">Find Adventure</a>
-                    </div>
-                    <div class="hero-image">
-                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Adventure mountain climbing">
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-btn prev" aria-label="Previous slide">&#10094;</button>
-            <button class="carousel-btn next" aria-label="Next slide">&#10095;</button>
-            <div class="carousel-dots">
-                <span class="dot active" data-slide="0"></span>
-                <span class="dot" data-slide="1"></span>
-                <span class="dot" data-slide="2"></span>
-            </div>
+            </noscript>
         </div>
     </section>
 
     <!-- Featured Destinations -->
-    <section class="featured-destinations">
+    <section class="featured-destinations" aria-label="Featured Destinations">
         <div class="container">
             <div class="section-header">
                 <h2>Featured Destinations</h2>
@@ -88,8 +99,10 @@
                 <div class="destination-card">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Swiss Alps">
+                        <button class="bookmark-btn" title="Bookmark this destination"> <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21C12 21 4 13.36 4 8.5C4 5.42 6.42 3 9.5 3C11.24 3 12.91 3.81 14 5.08C15.09 3.81 16.76 3 18.5 3C21.58 3 24 5.42 24 8.5C24 13.36 16 21 16 21H12Z"/></svg></button>
                     </div>
                     <div class="card-content">
+                        <span class="category-badge">Mountain</span>
                         <h3>Swiss Alps</h3>
                         <p class="location">Switzerland</p>
                         <p class="description">Experience the breathtaking beauty of the Swiss Alps with world-class skiing, hiking trails, and stunning mountain vistas.</p>
@@ -104,8 +117,10 @@
                 <div class="destination-card">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2079&q=80" alt="Santorini">
+                        <button class="bookmark-btn" title="Bookmark this destination"> <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21C12 21 4 13.36 4 8.5C4 5.42 6.42 3 9.5 3C11.24 3 12.91 3.81 14 5.08C15.09 3.81 16.76 3 18.5 3C21.58 3 24 5.42 24 8.5C24 13.36 16 21 16 21H12Z"/></svg></button>
                     </div>
                     <div class="card-content">
+                        <span class="category-badge">Island</span>
                         <h3>Santorini</h3>
                         <p class="location">Greece</p>
                         <p class="description">Discover the iconic white-washed buildings and stunning sunsets of this beautiful Greek island paradise.</p>
@@ -120,8 +135,10 @@
                 <div class="destination-card">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80" alt="Banff National Park">
+                        <button class="bookmark-btn" title="Bookmark this destination"> <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21C12 21 4 13.36 4 8.5C4 5.42 6.42 3 9.5 3C11.24 3 12.91 3.81 14 5.08C15.09 3.81 16.76 3 18.5 3C21.58 3 24 5.42 24 8.5C24 13.36 16 21 16 21H12Z"/></svg></button>
                     </div>
                     <div class="card-content">
+                        <span class="category-badge">National Park</span>
                         <h3>Banff National Park</h3>
                         <p class="location">Canada</p>
                         <p class="description">Explore the pristine wilderness of Canada's oldest national park with crystal-clear lakes and majestic mountains.</p>
@@ -136,8 +153,10 @@
                 <div class="destination-card">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80" alt="Tokyo">
+                        <button class="bookmark-btn" title="Bookmark this destination"> <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21C12 21 4 13.36 4 8.5C4 5.42 6.42 3 9.5 3C11.24 3 12.91 3.81 14 5.08C15.09 3.81 16.76 3 18.5 3C21.58 3 24 5.42 24 8.5C24 13.36 16 21 16 21H12Z"/></svg></button>
                     </div>
                     <div class="card-content">
+                        <span class="category-badge">City</span>
                         <h3>Tokyo</h3>
                         <p class="location">Japan</p>
                         <p class="description">Experience the perfect blend of traditional culture and modern innovation in Japan's vibrant capital city.</p>
@@ -152,8 +171,10 @@
                 <div class="destination-card">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2036&q=80" alt="Machu Picchu">
+                        <button class="bookmark-btn" title="Bookmark this destination"> <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21C12 21 4 13.36 4 8.5C4 5.42 6.42 3 9.5 3C11.24 3 12.91 3.81 14 5.08C15.09 3.81 16.76 3 18.5 3C21.58 3 24 5.42 24 8.5C24 13.36 16 21 16 21H12Z"/></svg></button>
                     </div>
                     <div class="card-content">
+                        <span class="category-badge">Ancient Site</span>
                         <h3>Machu Picchu</h3>
                         <p class="location">Peru</p>
                         <p class="description">Journey to the ancient Incan citadel perched high in the Andes Mountains, a UNESCO World Heritage site.</p>
@@ -168,8 +189,10 @@
                 <div class="destination-card">
                     <div class="card-image">
                         <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="New Zealand">
+                        <button class="bookmark-btn" title="Bookmark this destination"> <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21C12 21 4 13.36 4 8.5C4 5.42 6.42 3 9.5 3C11.24 3 12.91 3.81 14 5.08C15.09 3.81 16.76 3 18.5 3C21.58 3 24 5.42 24 8.5C24 13.36 16 21 16 21H12Z"/></svg></button>
                     </div>
                     <div class="card-content">
+                        <span class="category-badge">Country</span>
                         <h3>New Zealand</h3>
                         <p class="location">New Zealand</p>
                         <p class="description">Discover the stunning landscapes of Middle-earth with adventure activities and breathtaking natural beauty.</p>
@@ -183,13 +206,14 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>TravelGuide</h3>
+                    <h3 class="footer-title-gradient">Travel Guide</h3>
                     <p>Your ultimate travel companion for discovering amazing destinations around the world.</p>
                 </div>
                 <div class="footer-section">
@@ -213,7 +237,27 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/carousel.js"></script>
+    <div id="globalModal" class="global-modal" tabindex="-1" aria-modal="true" role="dialog" style="display:none;">
+        <div class="global-modal-content">
+            <button class="global-modal-close" aria-label="Close modal">&times;</button>
+            <div class="global-modal-body"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (window.Swiper) {
+            new Swiper('.hero-swiper', {
+                loop: true,
+                pagination: { el: '.swiper-pagination', clickable: true },
+                navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+                autoplay: { delay: 5000, disableOnInteraction: false },
+                effect: 'fade',
+            });
+        }
+    });
+    </script>
 </body>
 </html>

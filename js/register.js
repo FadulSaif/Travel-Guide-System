@@ -1,4 +1,4 @@
-// Register functionality
+// Register functionality is now handled in script.js
 
 class RegisterForm {
     constructor() {
@@ -76,22 +76,6 @@ class RegisterForm {
         if (agreeTerms) {
             agreeTerms.addEventListener('change', () => {
                 this.clearError(agreeTerms, 'termsError');
-            });
-        }
-        
-        // Social register buttons
-        const googleBtn = document.querySelector('.btn-google');
-        const facebookBtn = document.querySelector('.btn-facebook');
-        
-        if (googleBtn) {
-            googleBtn.addEventListener('click', () => {
-                this.handleSocialRegister('Google');
-            });
-        }
-        
-        if (facebookBtn) {
-            facebookBtn.addEventListener('click', () => {
-                this.handleSocialRegister('Facebook');
             });
         }
     }
@@ -448,10 +432,6 @@ class RegisterForm {
             this.submitBtn.disabled = false;
             this.submitBtn.textContent = 'Create Account';
         }
-    }
-    
-    handleSocialRegister(provider) {
-        showMessage(`${provider} registration is not implemented in this demo. Please use the form above.`, 'info');
     }
 }
 

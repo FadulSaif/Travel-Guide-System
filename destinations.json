@@ -1,0 +1,56 @@
+[
+  {
+    "id": "swiss-alps",
+    "title": "Swiss Alps",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    "description": "Experience the breathtaking beauty of the Swiss Alps with world-class skiing, hiking trails, and stunning mountain vistas.",
+    "country": "Switzerland",
+    "category": "Mountain",
+    "rating": 5.0
+  },
+  {
+    "id": "santorini",
+    "title": "Santorini",
+    "image": "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2079&q=80",
+    "description": "Discover the iconic white-washed buildings and stunning sunsets of this beautiful Greek island paradise.",
+    "country": "Greece",
+    "category": "Beach",
+    "rating": 4.9
+  },
+  {
+    "id": "banff",
+    "title": "Banff National Park",
+    "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80",
+    "description": "Explore the pristine wilderness of Canada's oldest national park with crystal-clear lakes and majestic mountains.",
+    "country": "Canada",
+    "category": "Nature",
+    "rating": 4.8
+  },
+  {
+    "id": "tokyo",
+    "title": "Tokyo",
+    "image": "https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&auto=format&fit=crop&w=2076&q=80",
+    "description": "Experience the perfect blend of traditional culture and modern innovation in Japan's vibrant capital city.",
+    "country": "Japan",
+    "category": "City",
+    "rating": 4.7
+  },
+  {
+    "id": "machu-picchu",
+    "title": "Machu Picchu",
+    "image": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&auto=format&fit=crop&w=2036&q=80",
+    "description": "Journey to the ancient Incan citadel perched high in the Andes Mountains, a UNESCO World Heritage site.",
+    "country": "Peru",
+    "category": "Historical",
+    "rating": 4.9
+  },
+  {
+    "id": "new-zealand",
+    "title": "New Zealand",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    "description": "Discover the stunning landscapes of Middle-earth with adventure activities and breathtaking natural beauty.",
+    "country": "New Zealand",
+    "category": "Adventure",
+    "rating": 4.8
+  }
+] 

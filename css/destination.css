@@ -57,13 +57,13 @@
 }
 
 .breadcrumb a {
-    color: #2563eb;
+    color: #5f2c82;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .breadcrumb a:hover {
-    color: #1d4ed8;
+    color: #7c3aed;
 }
 
 .breadcrumb span {
@@ -172,7 +172,7 @@
     padding: 1rem;
     background: #f8fafc;
     border-radius: 8px;
-    border-left: 4px solid #2563eb;
+    border-left: 4px solid #5f2c82;
 }
 
 .info-item h4 {
@@ -248,36 +248,117 @@
 }
 
 /* Review Form */
-.review-form-container {
-    background: #f8fafc;
-    padding: 2rem;
-    border-radius: 8px;
-    border: 1px solid #e5e7eb;
+.modern-review-form {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(95,44,130,0.10);
+    padding: 2.5rem 2rem 2rem 2rem;
+    margin-bottom: 2rem;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.review-form-container h3 {
-    color: #1e293b;
+.review-form-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #5f2c82;
+    margin-bottom: 0.3rem;
+    text-align: center;
+}
+
+.review-form-subtitle {
+    color: #7c3aed;
+    font-size: 1rem;
     margin-bottom: 1.5rem;
+    text-align: center;
 }
 
-.review-form .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1rem;
+.star-rating-input {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    gap: 0.2rem;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.star-rating-input input[type="radio"] {
+    display: none;
+}
+
+.star-rating-input label {
+    color: #e2e8f0;
+    cursor: pointer;
+    transition: color 0.2s;
+    font-size: 2rem;
+}
+
+.star-rating-input input[type="radio"]:checked ~ label,
+.star-rating-input label:hover,
+.star-rating-input label:hover ~ label {
+    color: #fbb040;
 }
 
 .review-form .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.review-form .form-label {
+    font-weight: 600;
+    color: #232946;
+    margin-bottom: 0.4rem;
+    display: block;
 }
 
 .review-form .form-input {
     width: 100%;
+    border-radius: 10px;
+    border: 2px solid #e2e8f0;
+    padding: 12px 14px;
+    font-size: 1rem;
+    background: #f8fafc;
+    color: #232946;
+    transition: border 0.2s, box-shadow 0.2s;
 }
 
-.review-form textarea.form-input {
-    resize: vertical;
-    min-height: 100px;
+.review-form .form-input:focus {
+    border-color: #7c3aed;
+    outline: none;
+    box-shadow: 0 0 0 2px #7c3aed33;
+}
+
+.review-submit-btn {
+    width: 100%;
+    background: linear-gradient(90deg, #5f2c82 0%, #7c3aed 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 0;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 16px rgba(95,44,130,0.10);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+}
+
+.review-submit-btn:hover {
+    background: linear-gradient(90deg, #7c3aed 0%, #5f2c82 100%);
+    box-shadow: 0 8px 32px rgba(95,44,130,0.18);
+    transform: translateY(-2px) scale(1.03);
+}
+
+@media (max-width: 600px) {
+    .modern-review-form {
+        padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+    }
+    .review-form-title {
+        font-size: 1.1rem;
+    }
+    .star-rating-input {
+        font-size: 1.3rem;
+    }
 }
 
 /* Sidebar */
@@ -305,27 +386,66 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    margin-top: 1.2rem;
 }
 
 .btn-full {
     width: 100%;
-    justify-content: center;
-}
-
-#bookmarkBtn {
+    border-radius: 16px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 14px 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+    box-shadow: 0 4px 16px rgba(95,44,130,0.10);
+    background: linear-gradient(90deg, #5f2c82 0%, #7c3aed 100%);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    letter-spacing: 0.5px;
+    text-decoration: none;
 }
 
-.bookmark-icon {
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
+.btn-full:hover {
+    box-shadow: 0 8px 32px rgba(95,44,130,0.18);
+    transform: translateY(-2px) scale(1.03);
+    background: linear-gradient(90deg, #7c3aed 0%, #5f2c82 100%);
 }
 
-.bookmark-icon.active {
-    color: #dc2626;
+#bookmarkBtn {
+    background: linear-gradient(90deg, #ede9fe 0%, #c7b8ea 100%);
+    color: #5f2c82;
+    font-weight: 700;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(95,44,130,0.06);
+    transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    padding: 14px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    cursor: pointer;
+}
+
+#bookmarkBtn .bookmark-icon {
+    font-size: 1.3rem;
+    color: #a72693;
+    transition: color 0.2s;
+}
+
+#bookmarkBtn:hover {
+    background: linear-gradient(90deg, #5f2c82 0%, #7c3aed 100%);
+    color: #fff;
+}
+
+#bookmarkBtn:hover .bookmark-icon {
+    color: #fff;
 }
 
 /* Related Destinations */
@@ -373,27 +493,36 @@
 
 /* Travel Tips */
 .travel-tips {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(95,44,130,0.10);
+    padding: 2rem 1.5rem;
+    margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.2rem;
 }
 
 .tip {
-    padding: 1rem;
     background: #f8fafc;
-    border-radius: 8px;
-    border-left: 3px solid #2563eb;
+    border-radius: 14px;
+    border: 2px solid;
+    border-image: linear-gradient(90deg, #5f2c82 0%, #7c3aed 100%) 1;
+    box-shadow: 0 2px 8px rgba(95,44,130,0.06);
+    padding: 1.2rem 1rem;
+    margin: 0;
 }
 
 .tip h4 {
-    color: #1e293b;
-    margin-bottom: 0.5rem;
-    font-size: 0.875rem;
+    color: #5f2c82;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
 }
 
 .tip p {
-    color: #64748b;
-    font-size: 0.875rem;
+    color: #232946;
+    font-size: 1rem;
     margin: 0;
     line-height: 1.5;
 }
@@ -863,12 +992,14 @@
 }
 
 .travel-tips {
-    background: #232946;
+    background: #fff;
     border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    border: 1px solid #393e5c;
-    color: #f4f4fa;
+    box-shadow: 0 8px 32px rgba(95,44,130,0.10);
+    padding: 2rem 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
 }
 
 .travel-tips h3 {
@@ -977,5 +1108,14 @@
         flex-direction: column;
         gap: 1rem;
         align-items: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+    .travel-tips {
+        padding: 1rem 0.5rem;
+    }
+    .tip {
+        padding: 0.8rem 0.5rem;
     }
 } 

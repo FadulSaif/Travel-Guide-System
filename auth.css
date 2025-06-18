@@ -1,0 +1,659 @@
+/* Authentication Pages Styles (Login & Register) */
+
+.auth-section {
+    background: linear-gradient(135deg, #f7fafc 0%, #ede9fe 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.auth-container {
+    background: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100vw;
+}
+
+/* Auth Card - Completely Redesigned */
+.auth-card {
+    background: #fff !important;
+    color: #232946 !important;
+    box-shadow: 0 12px 48px rgba(95,44,130,0.13), 0 2px 8px rgba(58,12,163,0.08);
+    border-radius: 32px !important;
+    padding: 3.5rem 2.5rem !important;
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid #ede9fe;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.auth-header h1 {
+    background: linear-gradient(135deg, #a72693 0%, #3a0ca3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #232946;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 0.5rem;
+}
+
+.auth-header p {
+    color: #64748b;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* Auth Form - Enhanced Spacing and Layout */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 0.5rem;
+}
+
+.form-label {
+    margin-bottom: 0.8rem;
+    color: #1e293b;
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-input {
+    background: #f8fafc !important;
+    color: #1e293b !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 20px !important;
+    box-shadow: 0 2px 8px rgba(58,12,163,0.04);
+    padding: 20px 24px !important;
+    font-size: 1.15rem !important;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+}
+
+.form-input:focus {
+    border-color: #a72693 !important;
+    box-shadow: 0 0 0 4px rgba(167, 38, 147, 0.08), 0 4px 16px rgba(58,12,163,0.08);
+    outline: none;
+    background: #fff !important;
+    transform: translateY(-2px);
+}
+
+.form-input::placeholder {
+    color: #94a3b8 !important;
+    opacity: 1 !important;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-input.error {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.08);
+    animation: shake 0.5s ease-in-out;
+}
+
+.form-input.success {
+    border-color: #10b981 !important;
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.08);
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+}
+
+/* Autofill fix for Chrome */
+input.form-input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #f8fafc inset !important;
+    -webkit-text-fill-color: #1e293b !important;
+    border-color: #a72693 !important;
+}
+
+/* Password Input */
+.password-input {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #a72693;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.password-toggle:hover {
+    color: #3a0ca3;
+    background: rgba(58, 12, 163, 0.08);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.eye-icon {
+    display: inline-block;
+    transition: opacity 0.3s ease;
+    color: #a72693;
+}
+
+.password-toggle.show .eye-icon {
+    opacity: 0.7;
+}
+
+/* Form Options */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #a72693;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.form-checkbox label {
+    color: #475569;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+}
+
+.forgot-password {
+    color: #a72693;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.forgot-password:hover {
+    color: #3a0ca3;
+    text-decoration: underline;
+    transform: translateY(-1px);
+}
+
+/* Submit Button - Enhanced Design */
+.btn-primary, .btn-full {
+    font-size: 1.4rem !important;
+    padding: 26px 0 !important;
+    border-radius: 36px !important;
+    min-width: 280px;
+    max-width: 100%;
+    box-shadow: 0 16px 48px rgba(167, 38, 147, 0.22), 0 4px 16px rgba(58, 12, 163, 0.18);
+    margin: 2.5rem auto 0 auto !important;
+    display: block !important;
+    text-align: center !important;
+    letter-spacing: 0.8px;
+    font-weight: 800 !important;
+    transition: box-shadow 0.3s, transform 0.2s, background 0.2s;
+}
+
+.btn-primary:hover, .btn-full:hover, .btn-primary:focus, .btn-full:focus {
+    box-shadow: 0 24px 64px rgba(167, 38, 147, 0.32), 0 8px 24px rgba(58, 12, 163, 0.22);
+    transform: translateY(-4px) scale(1.05);
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #a72693 0%, #3a0ca3 100%);
+    color: #fff;
+    border: none;
+    padding: 18px 32px;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 32px rgba(167, 38, 147, 0.25);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #3a0ca3 0%, #a72693 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 48px rgba(167, 38, 147, 0.35);
+}
+
+.submit-btn:disabled {
+    background: #cbd5e0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Divider */
+.auth-divider {
+    text-align: center;
+    margin: 2.5rem 0;
+    position: relative;
+}
+
+.auth-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+}
+
+.auth-divider span {
+    background: #fff;
+    padding: 0 1.5rem;
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Social Login */
+.social-login {
+    margin-top: 2.5rem;
+    text-align: center;
+}
+
+.social-login p {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    background: #fff;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 14px 24px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    color: #475569;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.social-btn:hover {
+    border-color: #a72693;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(167, 38, 147, 0.15);
+    color: #a72693;
+}
+
+.social-btn.google:hover {
+    border-color: #ea4335;
+    box-shadow: 0 8px 24px rgba(234, 67, 53, 0.15);
+    color: #ea4335;
+}
+
+.social-btn.facebook:hover {
+    border-color: #1877f2;
+    box-shadow: 0 8px 24px rgba(24, 119, 242, 0.15);
+    color: #1877f2;
+}
+
+/* Auth Footer */
+.auth-footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.auth-footer p {
+    color: #64748b;
+    margin-bottom: 0.75rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.auth-footer a {
+    color: #a72693;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.auth-footer a:hover {
+    color: #3a0ca3;
+    text-decoration: underline;
+    transform: translateY(-1px);
+}
+
+/* Auth Image */
+.auth-image {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%),
+                url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-overlay {
+    text-align: center;
+    color: white;
+    padding: 2rem;
+    z-index: 2;
+}
+
+.image-overlay h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.image-overlay p {
+    font-size: 1.1rem;
+    color: #e2e8f0;
+    margin: 0;
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Error Messages - Enhanced */
+.error-message {
+    color: #dc2626 !important;
+    background: #fef2f2 !important;
+    border-left: 4px solid #ef4444 !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 12px 18px !important;
+    border-radius: 12px !important;
+    margin-top: 0.75rem;
+    display: none;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.08);
+}
+
+.error-message.show {
+    display: block !important;
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Success Messages - Enhanced */
+.success-message {
+    color: #059669 !important;
+    background: #f0fdf4 !important;
+    border-left: 4px solid #10b981 !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 12px 18px !important;
+    border-radius: 12px !important;
+    margin-top: 0.75rem;
+    display: none;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.08);
+}
+
+.success-message.show {
+    display: block !important;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading State */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Password Strength Indicator */
+.password-strength {
+    margin-top: 0.75rem;
+}
+
+.strength-bar {
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.strength-fill {
+    height: 100%;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+.strength-fill.weak {
+    background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+    width: 25%;
+}
+
+.strength-fill.fair {
+    background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+    width: 50%;
+}
+
+.strength-fill.good {
+    background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+    width: 75%;
+}
+
+.strength-fill.strong {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    width: 100%;
+}
+
+.strength-text {
+    font-size: 0.85rem;
+    color: #64748b;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+/* Checkbox Styles */
+.checkbox-label, .form-checkbox label {
+    color: #475569 !important;
+    font-size: 0.95rem;
+    font-weight: 500;
+    opacity: 1 !important;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+}
+
+input[type="checkbox"]:disabled + label, .form-checkbox label[aria-disabled="true"] {
+    color: #94a3b8 !important;
+    opacity: 1 !important;
+}
+
+/* Responsive Design - Enhanced */
+@media (max-width: 1024px) {
+    .auth-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .auth-image {
+        height: 300px;
+        order: -1;
+    }
+    
+    .image-overlay h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .auth-section {
+        padding: 1rem;
+    }
+    
+    .auth-card {
+        padding: 2rem 0.7rem !important;
+        max-width: 98vw;
+        border-radius: 18px !important;
+    }
+    
+    .auth-header h1 {
+        font-size: 2rem;
+    }
+    
+    .auth-header p {
+        font-size: 1rem;
+    }
+    
+    .form-input {
+        padding: 16px 20px !important;
+        font-size: 1rem !important;
+    }
+    
+    .btn-primary, .btn-full {
+        padding: 18px 0 !important;
+        font-size: 1.1rem !important;
+        min-width: 90vw;
+    }
+    
+    .social-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .social-btn {
+        justify-content: center;
+        padding: 16px 20px;
+    }
+    
+    .image-overlay h2 {
+        font-size: 1.5rem;
+    }
+    
+    .image-overlay p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 2rem 0.7rem !important;
+        max-width: 98vw;
+        border-radius: 18px !important;
+    }
+    
+    .auth-header h1 {
+        font-size: 1.75rem;
+    }
+    
+    .auth-header p {
+        font-size: 0.95rem;
+    }
+    
+    .form-input {
+        padding: 14px 18px !important;
+        font-size: 0.95rem !important;
+    }
+    
+    .submit-btn {
+        padding: 16px 24px;
+        font-size: 1rem;
+    }
+    
+    .image-overlay {
+        padding: 1.5rem;
+    }
+    
+    .image-overlay h2 {
+        font-size: 1.25rem;
+    }
+    
+    .image-overlay p {
+        font-size: 0.9rem;
+    }
+    
+    .auth-form {
+        gap: 1.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 0.25rem;
+    }
+} 
