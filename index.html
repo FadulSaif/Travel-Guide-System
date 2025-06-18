@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelGuide - Your Ultimate Travel Companion</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>TravelGuide</h1>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link active">Home</a></li>
+                        <li><a href="search.html" class="nav-link">Search</a></li>
+                        <li><a href="login.html" class="nav-link">Login</a></li>
+                        <li><a href="register.html" class="nav-link">Register</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Carousel -->
+    <section class="hero">
+        <div class="carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <div class="hero-content">
+                        <h2>Discover Amazing Destinations</h2>
+                        <p>Explore the world's most beautiful places and create unforgettable memories</p>
+                        <a href="search.html" class="btn btn-primary">Start Exploring</a>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80" alt="Beautiful mountain landscape">
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="hero-content">
+                        <h2>Experience Local Culture</h2>
+                        <p>Immerse yourself in diverse cultures and traditions around the globe</p>
+                        <a href="search.html" class="btn btn-primary">Find Culture</a>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2079&q=80" alt="Cultural city street">
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <div class="hero-content">
+                        <h2>Adventure Awaits</h2>
+                        <p>From beaches to mountains, find your next adventure destination</p>
+                        <a href="search.html" class="btn btn-primary">Find Adventure</a>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Adventure mountain climbing">
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-btn prev" aria-label="Previous slide">&#10094;</button>
+            <button class="carousel-btn next" aria-label="Next slide">&#10095;</button>
+            <div class="carousel-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Destinations -->
+    <section class="featured-destinations">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Destinations</h2>
+                <p>Discover our handpicked destinations that will inspire your next journey</p>
+            </div>
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Swiss Alps">
+                    </div>
+                    <div class="card-content">
+                        <h3>Swiss Alps</h3>
+                        <p class="location">Switzerland</p>
+                        <p class="description">Experience the breathtaking beauty of the Swiss Alps with world-class skiing, hiking trails, and stunning mountain vistas.</p>
+                        <div class="rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">5.0</span>
+                        </div>
+                        <a href="destination.html?id=swiss-alps" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2079&q=80" alt="Santorini">
+                    </div>
+                    <div class="card-content">
+                        <h3>Santorini</h3>
+                        <p class="location">Greece</p>
+                        <p class="description">Discover the iconic white-washed buildings and stunning sunsets of this beautiful Greek island paradise.</p>
+                        <div class="rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">4.9</span>
+                        </div>
+                        <a href="destination.html?id=santorini" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80" alt="Banff National Park">
+                    </div>
+                    <div class="card-content">
+                        <h3>Banff National Park</h3>
+                        <p class="location">Canada</p>
+                        <p class="description">Explore the pristine wilderness of Canada's oldest national park with crystal-clear lakes and majestic mountains.</p>
+                        <div class="rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">4.8</span>
+                        </div>
+                        <a href="destination.html?id=banff" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80" alt="Tokyo">
+                    </div>
+                    <div class="card-content">
+                        <h3>Tokyo</h3>
+                        <p class="location">Japan</p>
+                        <p class="description">Experience the perfect blend of traditional culture and modern innovation in Japan's vibrant capital city.</p>
+                        <div class="rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-text">4.7</span>
+                        </div>
+                        <a href="destination.html?id=tokyo" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2036&q=80" alt="Machu Picchu">
+                    </div>
+                    <div class="card-content">
+                        <h3>Machu Picchu</h3>
+                        <p class="location">Peru</p>
+                        <p class="description">Journey to the ancient Incan citadel perched high in the Andes Mountains, a UNESCO World Heritage site.</p>
+                        <div class="rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">4.9</span>
+                        </div>
+                        <a href="destination.html?id=machu-picchu" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="New Zealand">
+                    </div>
+                    <div class="card-content">
+                        <h3>New Zealand</h3>
+                        <p class="location">New Zealand</p>
+                        <p class="description">Discover the stunning landscapes of Middle-earth with adventure activities and breathtaking natural beauty.</p>
+                        <div class="rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">4.8</span>
+                        </div>
+                        <a href="destination.html?id=new-zealand" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TravelGuide</h3>
+                    <p>Your ultimate travel companion for discovering amazing destinations around the world.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="search.html">Search</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Register</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: 1231300664@student.mmu.edu.my</p>
+                    <p>Phone: +60-11-7002-8006</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EFHM. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/carousel.js"></script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - TravelGuide</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>TravelGuide</h1>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="search.html" class="nav-link">Search</a></li>
+                        <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+                        <li><a href="#" class="nav-link" id="logoutBtn">Logout</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard-section">
+        <div class="container">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <div class="welcome-content">
+                    <h1>Welcome back, <span id="userName">Traveler</span>! 👋</h1>
+                    <p>Ready to plan your next adventure? Here's what's new for you.</p>
+                </div>
+                <div class="welcome-actions">
+                    <a href="search.html" class="btn btn-primary">Explore Destinations</a>
+                    <button class="btn btn-secondary" id="refreshBtn">Refresh Data</button>
+                </div>
+            </div>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Quick Stats -->
+                <div class="dashboard-card stats-card">
+                    <h2>Your Travel Stats</h2>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number" id="bookmarksCount">0</div>
+                            <div class="stat-label">Bookmarks</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="searchesCount">0</div>
+                            <div class="stat-label">Searches</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="reviewsCount">0</div>
+                            <div class="stat-label">Reviews</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="destinationsCount">0</div>
+                            <div class="stat-label">Destinations</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="dashboard-card activity-card">
+                    <h2>Recent Activity</h2>
+                    <div class="activity-list" id="activityList">
+                        <div class="activity-item">
+                            <div class="activity-icon">🔍</div>
+                            <div class="activity-content">
+                                <p>You searched for "mountain destinations"</p>
+                                <span class="activity-time">2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">❤️</div>
+                            <div class="activity-content">
+                                <p>You bookmarked "Swiss Alps"</p>
+                                <span class="activity-time">1 day ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">⭐</div>
+                            <div class="activity-content">
+                                <p>You reviewed "Santorini"</p>
+                                <span class="activity-time">3 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bookmarked Destinations -->
+                <div class="dashboard-card bookmarks-card">
+                    <div class="card-header">
+                        <h2>Your Bookmarks</h2>
+                        <a href="search.html" class="view-all">View All</a>
+                    </div>
+                    <div class="bookmarks-list" id="bookmarksList">
+                        <!-- Bookmarks will be populated by JavaScript -->
+                    </div>
+                    <div class="empty-state" id="emptyBookmarks" style="display: none;">
+                        <div class="empty-icon">❤️</div>
+                        <h3>No bookmarks yet</h3>
+                        <p>Start exploring destinations and save your favorites!</p>
+                        <a href="search.html" class="btn btn-primary">Explore Destinations</a>
+                    </div>
+                </div>
+
+                <!-- Recent Searches -->
+                <div class="dashboard-card searches-card">
+                    <div class="card-header">
+                        <h2>Recent Searches</h2>
+                        <button class="clear-searches" id="clearSearches">Clear All</button>
+                    </div>
+                    <div class="searches-list" id="searchesList">
+                        <!-- Searches will be populated by JavaScript -->
+                    </div>
+                    <div class="empty-state" id="emptySearches" style="display: none;">
+                        <div class="empty-icon">🔍</div>
+                        <h3>No recent searches</h3>
+                        <p>Your search history will appear here</p>
+                    </div>
+                </div>
+
+                <!-- Recommended Destinations -->
+                <div class="dashboard-card recommendations-card">
+                    <h2>Recommended for You</h2>
+                    <div class="recommendations-grid" id="recommendationsGrid">
+                        <!-- Recommendations will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Travel Tips -->
+                <div class="dashboard-card tips-card">
+                    <h2>Travel Tips</h2>
+                    <div class="tips-list">
+                        <div class="tip-item">
+                            <div class="tip-icon">💡</div>
+                            <div class="tip-content">
+                                <h4>Best Time to Book</h4>
+                                <p>Book flights 2-3 months in advance for the best prices</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon">🌍</div>
+                            <div class="tip-content">
+                                <h4>Travel Insurance</h4>
+                                <p>Always consider travel insurance for international trips</p>
+                            </div>
+                        </div>
+                        <div class="tip-item">
+                            <div class="tip-icon">📱</div>
+                            <div class="tip-content">
+                                <h4>Digital Copies</h4>
+                                <p>Keep digital copies of important documents</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TravelGuide</h3>
+                    <p>Your ultimate travel companion for discovering amazing destinations around the world.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="search.html">Search</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@travelguide.com</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TravelGuide. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html> 

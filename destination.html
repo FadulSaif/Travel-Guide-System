@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination Details - TravelGuide</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/destination.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>TravelGuide</h1>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="search.html" class="nav-link">Search</a></li>
+                        <li><a href="login.html" class="nav-link">Login</a></li>
+                        <li><a href="register.html" class="nav-link">Register</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Destination Details -->
+    <section class="destination-details">
+        <div class="container">
+            <div id="loading" class="loading">Loading destination details...</div>
+            
+            <div id="destinationContent" style="display: none;">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a> &gt;
+                    <a href="search.html">Search</a> &gt;
+                    <span id="destinationName">Destination</span>
+                </nav>
+
+                <!-- Hero Section -->
+                <div class="destination-hero">
+                    <div class="hero-image">
+                        <img id="destinationImage" src="" alt="">
+                        <div class="hero-overlay">
+                            <div class="hero-content">
+                                <h1 id="destinationTitle">Destination Name</h1>
+                                <p id="destinationLocation" class="location">Country</p>
+                                <div class="hero-rating">
+                                    <span id="destinationStars" class="stars"></span>
+                                    <span id="destinationRating" class="rating-text"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="destination-content">
+                    <div class="content-main">
+                        <!-- Description -->
+                        <div class="content-section">
+                            <h2>About This Destination</h2>
+                            <p id="destinationDescription">Loading description...</p>
+                        </div>
+
+                        <!-- Key Information -->
+                        <div class="content-section">
+                            <h2>Key Information</h2>
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <h4>Category</h4>
+                                    <p id="destinationCategory">Loading...</p>
+                                </div>
+                                <div class="info-item">
+                                    <h4>Country</h4>
+                                    <p id="destinationCountry">Loading...</p>
+                                </div>
+                                <div class="info-item">
+                                    <h4>Average Rating</h4>
+                                    <p id="destinationAvgRating">Loading...</p>
+                                </div>
+                                <div class="info-item">
+                                    <h4>Price Range</h4>
+                                    <p id="destinationPrice">Loading...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Map Section -->
+                        <div class="content-section">
+                            <h2>Location</h2>
+                            <div class="map-container">
+                                <iframe 
+                                    id="destinationMap"
+                                    width="100%" 
+                                    height="400" 
+                                    frameborder="0" 
+                                    style="border:0" 
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+
+                        <!-- Reviews Section -->
+                        <div class="content-section">
+                            <h2>Reviews</h2>
+                            <div id="reviewsList" class="reviews-list">
+                                <!-- Reviews will be populated by JavaScript -->
+                            </div>
+                            
+                            <!-- Review Form -->
+                            <div class="review-form-container">
+                                <h3>Write a Review</h3>
+                                <form id="reviewForm" class="review-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="reviewerName" class="form-label">Your Name</label>
+                                            <input type="text" id="reviewerName" name="reviewerName" class="form-input" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="reviewRating" class="form-label">Rating</label>
+                                            <select id="reviewRating" name="reviewRating" class="form-input" required>
+                                                <option value="">Select Rating</option>
+                                                <option value="5">5 Stars - Excellent</option>
+                                                <option value="4">4 Stars - Very Good</option>
+                                                <option value="3">3 Stars - Good</option>
+                                                <option value="2">2 Stars - Fair</option>
+                                                <option value="1">1 Star - Poor</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="reviewComment" class="form-label">Your Review</label>
+                                        <textarea id="reviewComment" name="reviewComment" class="form-input" rows="4" placeholder="Share your experience..." required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit Review</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="content-sidebar">
+                        <!-- Quick Actions -->
+                        <div class="sidebar-section">
+                            <h3>Quick Actions</h3>
+                            <div class="action-buttons">
+                                <button id="bookmarkBtn" class="btn btn-secondary btn-full">
+                                    <span class="bookmark-icon">♡</span>
+                                    <span class="bookmark-text">Add to Bookmarks</span>
+                                </button>
+                                <a href="search.html" class="btn btn-primary btn-full">Find Similar</a>
+                            </div>
+                        </div>
+
+                        <!-- Related Destinations -->
+                        <div class="sidebar-section">
+                            <h3>Related Destinations</h3>
+                            <div id="relatedDestinations" class="related-destinations">
+                                <!-- Related destinations will be populated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- Travel Tips -->
+                        <div class="sidebar-section">
+                            <h3>Travel Tips</h3>
+                            <div class="travel-tips">
+                                <div class="tip">
+                                    <h4>Best Time to Visit</h4>
+                                    <p id="bestTimeTip">Loading...</p>
+                                </div>
+                                <div class="tip">
+                                    <h4>Getting There</h4>
+                                    <p id="gettingThereTip">Loading...</p>
+                                </div>
+                                <div class="tip">
+                                    <h4>Local Currency</h4>
+                                    <p id="currencyTip">Loading...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error State -->
+            <div id="errorState" class="error-state" style="display: none;">
+                <h2>Destination Not Found</h2>
+                <p>The destination you're looking for doesn't exist or has been removed.</p>
+                <a href="search.html" class="btn btn-primary">Browse All Destinations</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TravelGuide</h3>
+                    <p>Your ultimate travel companion for discovering amazing destinations around the world.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="search.html">Search</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Register</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: info@travelguide.com</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TravelGuide. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/destination.js"></script>
+</body>
+</html> 
