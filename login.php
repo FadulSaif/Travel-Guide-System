@@ -1,3 +1,40 @@
+<?php
+session_start();
+require_once 'connection.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = trim($_POST['email'] ?? '');
+    $password = $_POST['password'] ?? '';
+
+    if (empty($email) || empty($password)) {
+        exit("Email and password are required.");
+    }
+
+    $stmt = $conn->prepare("SELECT user_id, user_name, password, user_type FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows === 0) {
+        exit("Invalid email or password.");
+    }
+
+    $stmt->bind_result($user_id, $user_name, $hashedPassword, $user_type);
+    $stmt->fetch();
+
+    if (!password_verify($password, $hashedPassword)) {
+        exit("Invalid email or password.");
+    }
+
+    $_SESSION['user_id'] = $user_id;
+    $_SESSION['user_name'] = $user_name;
+    $_SESSION['user_type'] = $user_type;
+
+    echo "success";
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,14 +53,7 @@
                 <div class="logo">
                     <h1 id="siteTitle" class="site-title-gradient">TravelGuide</h1>
                 </div>
-                <nav class="nav" aria-label="Main Navigation">
-                    <ul class="nav-list">
-                        <li><a href="index.html" class="nav-link">Home</a></li>
-                        <li><a href="search.html" class="nav-link">Search</a></li>
-                        <li><a href="login.html" class="nav-link active">Login</a></li>
-                        <li><a href="register.html" class="nav-link">Register</a></li>
-                    </ul>
-                </nav>
+                <?php include 'navbar.php'; ?>
                 <div class="mobile-menu-toggle" aria-label="Open navigation menu" aria-expanded="false" tabindex="0" role="button">
                     <span></span>
                     <span></span>
@@ -34,7 +64,6 @@
     </header>
 
     <main>
-    <!-- Login Section -->
     <section class="auth-section" aria-label="Login">
         <div class="container">
             <div class="auth-container">
@@ -43,6 +72,7 @@
                         <h1>Welcome Back</h1>
                         <p>Sign in to your TravelGuide account</p>
                     </div>
+                    <div id="formMessage"></div>
                     <form id="loginForm" class="auth-form" aria-label="Login Form">
                         <div class="form-group">
                             <label for="email" class="form-label">Email Address</label>
@@ -63,7 +93,7 @@
                         <button type="submit" class="btn btn-primary btn-full">Sign In</button>
                     </form>
                     <div class="auth-footer">
-                        <p>Don't have an account? <a href="register.html">Sign up here</a></p>
+                        <p>Don't have an account? <a href="register.php">Sign up here</a></p>
                     </div>
                 </div>
                 <div class="auth-image">
@@ -77,36 +107,8 @@
     </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>TravelGuide</h3>
-                    <p>Your ultimate travel companion for discovering amazing destinations around the world.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="search.html">Search</a></li>
-                        <li><a href="login.html">Login</a></li>
-                        <li><a href="register.html">Register</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Email: 1231300664@student.mmu.edu.my</p>
-                    <p>Phone: +60-11-7002-8006</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 EFHM. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <?php include 'footer.php'; ?>
 
-    <script src="js/main.js"></script>
     <script src="js/login.js"></script>
     <script src="script.js"></script>
 </body>

@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,21 +17,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
     <header class="header" role="banner">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
                     <h1 id="siteTitle" class="site-title-gradient">TravelGuide</h1>
                 </div>
-                <nav class="nav" aria-label="Main Navigation">
-                    <ul class="nav-list">
-                        <li><a href="index.html" class="nav-link">Home</a></li>
-                        <li><a href="search.html" class="nav-link">Search</a></li>
-                        <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
-                        <li><a href="#" class="nav-link" id="logoutBtn">Logout</a></li>
-                    </ul>
-                </nav>
+                <?php include 'navbar.php'; ?>
                 <div class="mobile-menu-toggle" aria-label="Open navigation menu" aria-expanded="false" tabindex="0" role="button">
                     <span></span>
                     <span></span>
@@ -34,24 +34,20 @@
     </header>
 
     <main>
-    <!-- Dashboard Section -->
     <section class="dashboard-section" aria-label="User Dashboard">
         <div class="container">
-            <!-- Welcome Section -->
             <div class="welcome-section" aria-label="Welcome">
                 <div class="welcome-content">
                     <h1>Welcome back, <span id="userName">Traveler</span>! 👋</h1>
                     <p>Ready to plan your next adventure? Here's what's new for you.</p>
                     <div class="welcome-actions">
-                        <a href="search.html" class="btn btn-primary">Explore Destinations</a>
+                        <a href="search.php" class="btn btn-primary">Explore Destinations</a>
                         <button class="btn btn-secondary" id="refreshBtn">Refresh Data</button>
                     </div>
                 </div>
             </div>
-            <!-- Dashboard Main Grid -->
             <div class="dashboard-main-grid">
                 <div class="dashboard-col">
-                    <!-- Quick Stats -->
                     <div class="dashboard-card stats-card" aria-label="Travel Stats">
                         <h2>Your Travel Stats</h2>
                         <div class="stats-grid">
@@ -75,30 +71,26 @@
                     </div>
                 </div>
                 <div class="dashboard-col">
-                    <!-- Recent Activity -->
                     <div class="dashboard-card activity-card" aria-label="Recent Activity">
                         <h2>Recent Activity</h2>
                         <div class="activity-list" id="activityList">
-                            <!-- Activities populated by JS -->
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Bookmarks Full Width -->
             <div class="dashboard-card bookmarks-card" aria-label="Bookmarked Destinations">
                 <div class="card-header">
                     <h2>Your Bookmarks</h2>
-                    <a href="search.html" class="view-all">View All</a>
+                    <a href="search.php" class="view-all">View All</a>
                 </div>
                 <div class="bookmarks-list" id="bookmarksList"></div>
                 <div class="empty-state" id="emptyBookmarks" style="display: none;">
                     <div class="empty-icon" aria-hidden="true">❤️</div>
                     <h3>No bookmarks yet</h3>
                     <p>Start exploring destinations and save your favorites!</p>
-                    <a href="search.html" class="btn btn-primary">Explore Destinations</a>
+                    <a href="search.php" class="btn btn-primary">Explore Destinations</a>
                 </div>
             </div>
-            <!-- Recommendations & Tips Grid -->
             <div class="dashboard-main-grid">
                 <div class="dashboard-col">
                     <div class="dashboard-card recommendations-card" aria-label="Recommended Destinations">
@@ -117,35 +109,7 @@
     </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>TravelGuide</h3>
-                    <p>Your ultimate travel companion for discovering amazing destinations around the world.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="search.html">Search</a></li>
-                        <li><a href="dashboard.html">Dashboard</a></li>
-                        <li><a href="login.html">Login</a></li>
-                        <li><a href="register.html">Register</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Email: 1231300664@student.mmu.edu.my</p>
-                    <p>Phone: +60-11-7002-8006</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 EFHM. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <?php include 'footer.php'; ?>
 
     <script src="script.js"></script>
     <script src="js/main.js"></script>

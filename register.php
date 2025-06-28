@@ -1,3 +1,52 @@
+<?php
+require_once 'connection.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = trim($_POST['username'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $password = $_POST['password'] ?? '';
+    $confirmPassword = $_POST['confirmPassword'] ?? '';
+
+    // Simple validation
+    if (empty($username) || empty($email) || empty($password) || empty($confirmPassword)) {
+        exit("All fields are required.");
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        exit("Invalid email format.");
+    }
+
+    if ($password !== $confirmPassword) {
+        exit("Passwords do not match.");
+    }
+
+    // Check if email already exists
+    $check = $conn->prepare("SELECT user_id FROM users WHERE email = ?");
+    $check->bind_param("s", $email);
+    $check->execute();
+    $check->store_result();
+
+    if ($check->num_rows > 0) {
+        exit("Email already registered.");
+    }
+
+    $check->close();
+
+    // Hash password
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    // Insert into database
+    $stmt = $conn->prepare("INSERT INTO users (user_name, email, password, user_type) VALUES (?, ?, ?, 1)");
+    $stmt->bind_param("sss", $username, $email, $hashedPassword);
+
+    if ($stmt->execute()) {
+        echo "success"; // JS checks for this message to confirm
+    } else {
+        exit("Registration failed: " . $conn->error);
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,14 +65,7 @@
                 <div class="logo">
                     <h1 id="siteTitle" class="site-title-gradient">TravelGuide</h1>
                 </div>
-                <nav class="nav" aria-label="Main Navigation">
-                    <ul class="nav-list">
-                        <li><a href="index.html" class="nav-link">Home</a></li>
-                        <li><a href="search.html" class="nav-link">Search</a></li>
-                        <li><a href="login.html" class="nav-link">Login</a></li>
-                        <li><a href="register.html" class="nav-link active">Register</a></li>
-                    </ul>
-                </nav>
+                <?php include 'navbar.php'; ?>
                 <div class="mobile-menu-toggle" aria-label="Open navigation menu" aria-expanded="false" tabindex="0" role="button">
                     <span></span>
                     <span></span>
@@ -43,7 +85,8 @@
                         <h1>Create Account</h1>
                         <p>Join TravelGuide and start your journey</p>
                     </div>
-                    <form id="registerForm" class="auth-form" aria-label="Register Form">
+                     <div id="formMessage"></div>
+                    <form id="registerForm" class="auth-form" action="register.php" method="POST" aria-label="Register Form">
                         <div class="form-group">
                             <label for="username" class="form-label">Username</label>
                             <input type="text" id="username" name="username" class="form-input" required aria-required="true" aria-label="Username">
@@ -73,8 +116,9 @@
                         </div>
                         <button type="submit" class="btn btn-primary btn-full">Create Account</button>
                     </form>
+
                     <div class="auth-footer">
-                        <p>Already have an account? <a href="login.html">Sign in here</a></p>
+                        <p>Already have an account? <a href="login.php">Sign in here</a></p>
                     </div>
                 </div>
                 <div class="auth-image">
@@ -89,36 +133,9 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>TravelGuide</h3>
-                    <p>Your ultimate travel companion for discovering amazing destinations around the world.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="search.html">Search</a></li>
-                        <li><a href="login.html">Login</a></li>
-                        <li><a href="register.html">Register</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Email: 1231300664@student.mmu.edu.my</p>
-                    <p>Phone: +60-11-7002-8006</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 EFHM. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <?php include 'footer.php'; ?>
 
     <script src="script.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/register.js"></script>
 </body>
 </html> 

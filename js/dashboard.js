@@ -21,7 +21,7 @@ class Dashboard {
         const userData = localStorage.getItem('user');
         if (!userData) {
             // Redirect to login if not authenticated
-            window.location.href = 'login.html';
+            window.location.href = 'login.php';
             return;
         }
         
@@ -30,7 +30,7 @@ class Dashboard {
         } catch (error) {
             console.error('Error parsing user data:', error);
             localStorage.removeItem('user');
-            window.location.href = 'login.html';
+            window.location.href = 'login.php';
         }
     }
     
@@ -257,7 +257,7 @@ class Dashboard {
             localStorage.removeItem('user');
             localStorage.removeItem('rememberMe');
             localStorage.removeItem('savedEmail');
-            window.location.href = 'index.html';
+            window.location.href = 'index.php';
         }
     }
     

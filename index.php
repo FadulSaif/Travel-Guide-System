@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,14 +19,7 @@
                 <div class="logo">
                     <h1 id="siteTitle" class="site-title-gradient">TravelGuide</h1>
                 </div>
-                <nav class="nav" aria-label="Main Navigation">
-                    <ul class="nav-list">
-                        <li><a href="index.html" class="nav-link active">Home</a></li>
-                        <li><a href="search.html" class="nav-link">Search</a></li>
-                        <li><a href="login.html" class="nav-link">Login</a></li>
-                        <li><a href="register.html" class="nav-link">Register</a></li>
-                    </ul>
-                </nav>
+                <?php include 'navbar.php'; ?>
                 <div class="mobile-menu-toggle" aria-label="Open navigation menu" aria-expanded="false" tabindex="0" role="button">
                     <span></span>
                     <span></span>
@@ -32,7 +29,6 @@
         </div>
     </header>
 
-    <!-- Hero Section with Carousel -->
     <main>
     <section class="hero" aria-label="Featured Destinations Carousel">
         <div class="carousel">
@@ -42,7 +38,7 @@
                         <div class="hero-content">
                             <h2>Discover Amazing Destinations</h2>
                             <p>Explore the world's most beautiful places and create unforgettable memories</p>
-                            <a href="search.html" class="btn btn-primary">Start Exploring</a>
+                            <a href="search.php" class="btn btn-primary">Start Exploring</a>
                         </div>
                         <div class="hero-image">
                             <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80" alt="Beautiful mountain landscape">
@@ -52,7 +48,7 @@
                         <div class="hero-content">
                             <h2>Experience Local Culture</h2>
                             <p>Immerse yourself in diverse cultures and traditions around the globe</p>
-                            <a href="search.html" class="btn btn-primary">Find Culture</a>
+                            <a href="search.php" class="btn btn-primary">Find Culture</a>
                         </div>
                         <div class="hero-image">
                             <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2079&q=80" alt="Cultural city street">
@@ -62,7 +58,7 @@
                         <div class="hero-content">
                             <h2>Adventure Awaits</h2>
                             <p>From beaches to mountains, find your next adventure destination</p>
-                            <a href="search.html" class="btn btn-primary">Find Adventure</a>
+                            <a href="search.php" class="btn btn-primary">Find Adventure</a>
                         </div>
                         <div class="hero-image">
                             <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Adventure mountain climbing">
@@ -78,7 +74,7 @@
                     <div class="hero-content">
                         <h2>Discover Amazing Destinations</h2>
                         <p>Explore the world's most beautiful places and create unforgettable memories</p>
-                        <a href="search.html" class="btn btn-primary">Start Exploring</a>
+                        <a href="search.php" class="btn btn-primary">Start Exploring</a>
                     </div>
                     <div class="hero-image">
                         <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80" alt="Beautiful mountain landscape">
@@ -88,7 +84,6 @@
         </div>
     </section>
 
-    <!-- Featured Destinations -->
     <section class="featured-destinations" aria-label="Featured Destinations">
         <div class="container">
             <div class="section-header">
@@ -110,7 +105,7 @@
                             <span class="stars">★★★★★</span>
                             <span class="rating-text">5.0</span>
                         </div>
-                        <a href="destination.html?id=swiss-alps" class="btn btn-secondary">Learn More</a>
+                        <a href="destination.php?id=swiss-alps" class="btn btn-secondary">Learn More</a>
                     </div>
                 </div>
 
@@ -128,7 +123,7 @@
                             <span class="stars">★★★★★</span>
                             <span class="rating-text">4.9</span>
                         </div>
-                        <a href="destination.html?id=santorini" class="btn btn-secondary">Learn More</a>
+                        <a href="destination.php?id=santorini" class="btn btn-secondary">Learn More</a>
                     </div>
                 </div>
 
@@ -146,7 +141,7 @@
                             <span class="stars">★★★★★</span>
                             <span class="rating-text">4.8</span>
                         </div>
-                        <a href="destination.html?id=banff" class="btn btn-secondary">Learn More</a>
+                        <a href="destination.php?id=banff" class="btn btn-secondary">Learn More</a>
                     </div>
                 </div>
 
@@ -164,7 +159,7 @@
                             <span class="stars">★★★★☆</span>
                             <span class="rating-text">4.7</span>
                         </div>
-                        <a href="destination.html?id=tokyo" class="btn btn-secondary">Learn More</a>
+                        <a href="destination.php?id=tokyo" class="btn btn-secondary">Learn More</a>
                     </div>
                 </div>
 
@@ -182,7 +177,7 @@
                             <span class="stars">★★★★★</span>
                             <span class="rating-text">4.9</span>
                         </div>
-                        <a href="destination.html?id=machu-picchu" class="btn btn-secondary">Learn More</a>
+                        <a href="destination.php?id=machu-picchu" class="btn btn-secondary">Learn More</a>
                     </div>
                 </div>
 
@@ -200,7 +195,7 @@
                             <span class="stars">★★★★★</span>
                             <span class="rating-text">4.8</span>
                         </div>
-                        <a href="destination.html?id=new-zealand" class="btn btn-secondary">Learn More</a>
+                        <a href="destination.php?id=new-zealand" class="btn btn-secondary">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -208,34 +203,7 @@
     </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3 class="footer-title-gradient">Travel Guide</h3>
-                    <p>Your ultimate travel companion for discovering amazing destinations around the world.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="search.html">Search</a></li>
-                        <li><a href="login.html">Login</a></li>
-                        <li><a href="register.html">Register</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Email: 1231300664@student.mmu.edu.my</p>
-                    <p>Phone: +60-11-7002-8006</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 EFHM. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <?php include 'footer.php'; ?>
 
     <div id="globalModal" class="global-modal" tabindex="-1" aria-modal="true" role="dialog" style="display:none;">
         <div class="global-modal-content">

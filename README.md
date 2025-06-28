@@ -12,22 +12,22 @@ A complete frontend for a Web-Based Travel Guide System built with HTML5, CSS3, 
 - Search & Filter: Advanced search with multiple filter options
 
 ### Pages
-1. Home Page (`index.html`) - Hero carousel, featured destinations, navigation
+1. Home Page (`index.php`) - Hero carousel, featured destinations, navigation
 2. Search Page** (`search.html`) - Search functionality with filters and dynamic results
 3. Destination Details (`destination.html`) - Detailed destination information with maps and reviews
-4. Login Page (`login.html`) - User authentication with validation
-5. Registration Page (`register.html`) - User registration with password strength validation
-6. Dashboard (`dashboard.html`) - User dashboard with bookmarks, searches, and recommendations
+4. Login Page (`login.php`) - User authentication with validation
+5. Registration Page (`register.php`) - User registration with password strength validation
+6. Dashboard (`dashboard.php`) - User dashboard with bookmarks, searches, and recommendations
 
 ### File Structure
 ```
 travel-guide-system/
-├── index.html              # Home page
+├── index.php              # Home page
 ├── search.html             # Search page
 ├── destination.html        # Destination details page
-├── login.html              # Login page
-├── register.html           # Registration page
-├── dashboard.html          # User dashboard
+├── login.php              # Login page
+├── register.php           # Registration page
+├── dashboard.php          # User dashboard
 ├── css/
 │   ├── style.css           # Global styles
 │   ├── search.css          # Search page styles
