@@ -135,3 +135,36 @@ window.showGlobalSpinner = function (parent = document.body) {
 window.hideGlobalSpinner = function (spinner) {
     if (spinner && spinner.parentNode) spinner.parentNode.removeChild(spinner);
 };
+
+document.addEventListener('DOMContentLoaded', function () {
+    const bookmarkButtons = document.querySelectorAll('.bookmark-btn');
+
+    bookmarkButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const destinationId = this.dataset.id;
+            console.log("Bookmark clicked for ID:", destinationId); // ✅ Debug log
+            if (!destinationId) return;
+
+            fetch('toggle_favorite.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'destination_id=' + encodeURIComponent(destinationId)
+            })
+            .then(response => response.text())
+            .then(result => {
+                if (result === 'added') {
+                    this.classList.add('bookmarked');
+                } else if (result === 'removed') {
+                    this.classList.remove('bookmarked');
+                } else if (result === 'not_logged_in') {
+                    alert('Please log in to bookmark destinations.');
+                } else {
+                    alert('Error updating bookmark.');
+                }
+            })
+            .catch(() => {
+                alert('Error connecting to server.');
+            });
+        });
+    });
+});

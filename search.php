@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,21 +13,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
     <header class="header" role="banner">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
                     <h1 id="siteTitle" class="site-title-gradient">TravelGuide</h1>
                 </div>
-                <nav class="nav" aria-label="Main Navigation">
-                    <ul class="nav-list">
-                        <li><a href="index.php" class="nav-link">Home</a></li>
-                        <li><a href="search.html" class="nav-link active">Search</a></li>
-                        <li><a href="login.php" class="nav-link">Login</a></li>
-                        <li><a href="register.php" class="nav-link">Register</a></li>
-                    </ul>
-                </nav>
+                <?php include 'navbar.php'; ?>
                 <div class="mobile-menu-toggle" aria-label="Open navigation menu" aria-expanded="false" tabindex="0" role="button">
                     <span></span>
                     <span></span>
@@ -34,7 +30,6 @@
     </header>
 
     <main>
-    <!-- Search Section -->
     <section class="search-section" aria-label="Search Destinations">
         <div class="container">
             <div class="search-header">
@@ -98,7 +93,6 @@
                         <p id="resultsCount">Showing all destinations</p>
                     </div>
                     <div id="destinationsList" class="destinations-grid">
-                        <!-- Destinations will be populated by JavaScript -->
                     </div>
                     <div id="noResults" class="no-results" style="display: none;">
                         <h3>No destinations found</h3>
@@ -110,36 +104,11 @@
     </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>TravelGuide</h3>
-                    <p>Your ultimate travel companion for discovering amazing destinations around the world.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="search.html">Search</a></li>
-                        <li><a href="login.php">Login</a></li>
-                        <li><a href="register.php">Register</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Email: 1231300664@student.mmu.edu.my</p>
-                    <p>Phone: +60-11-7002-8006</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 EFHM. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <?php include 'footer.php'; ?>
 
-    <script src="js/main.js"></script>
+    <script>
+        const CURRENT_USER_ID = <?= isset($_SESSION['user_id']) ? (int)$_SESSION['user_id'] : 'null' ?>;
+    </script>
     <script src="js/search.js"></script>
     <script src="script.js"></script>
 </body>

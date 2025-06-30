@@ -7,7 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
     $confirmPassword = $_POST['confirmPassword'] ?? '';
 
-    // Simple validation
     if (empty($username) || empty($email) || empty($password) || empty($confirmPassword)) {
         exit("All fields are required.");
     }
@@ -20,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit("Passwords do not match.");
     }
 
-    // Check if email already exists
     $check = $conn->prepare("SELECT user_id FROM users WHERE email = ?");
     $check->bind_param("s", $email);
     $check->execute();
@@ -32,15 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $check->close();
 
-    // Hash password
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    // Insert into database
     $stmt = $conn->prepare("INSERT INTO users (user_name, email, password, user_type) VALUES (?, ?, ?, 1)");
     $stmt->bind_param("sss", $username, $email, $hashedPassword);
 
     if ($stmt->execute()) {
-        echo "success"; // JS checks for this message to confirm
+        echo "success";
     } else {
         exit("Registration failed: " . $conn->error);
     }
@@ -58,7 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
     <header class="header" role="banner">
         <div class="container">
             <div class="header-content">
@@ -76,7 +71,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </header>
 
     <main>
-    <!-- Register Section -->
     <section class="auth-section" aria-label="Register">
         <div class="container">
             <div class="auth-container">
@@ -132,7 +126,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </section>
     </main>
 
-    <!-- Footer -->
     <?php include 'footer.php'; ?>
 
     <script src="script.js"></script>

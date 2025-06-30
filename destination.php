@@ -1,3 +1,34 @@
+<?php
+session_start();
+?>
+
+<?php
+$bookmarkedDestinations = [];
+
+if (isset($_SESSION['user_id'])) {
+    require_once 'connection.php';
+    $userId = $_SESSION['user_id'];
+
+    $stmt = $conn->prepare("SELECT destination_id FROM favorites WHERE user_id = ?");
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    while ($row = $result->fetch_assoc()) {
+        $bookmarkedDestinations[] = (int) $row['destination_id'];
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
+<script>
+    window.currentUser = <?php echo isset($_SESSION['username']) ? json_encode($_SESSION['username']) : 'null'; ?>;
+    window.bookmarkedDestinations = <?php echo json_encode($bookmarkedDestinations); ?>;
+</script>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,22 +40,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
     <header class="header" role="banner">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
                     <h1 id="siteTitle" class="site-title-gradient">TravelGuide</h1>
                 </div>
-                <nav class="nav" aria-label="Main Navigation">
-                    <ul class="nav-list">
-                        <li><a href="index.php" class="nav-link">Home</a></li>
-                        <li><a href="search.html" class="nav-link">Search</a></li>
-                        <li><a href="dashboard.php" class="nav-link">Dashboard</a></li>
-                        <li><a href="login.php" class="nav-link">Login</a></li>
-                        <li><a href="register.php" class="nav-link">Register</a></li>
-                    </ul>
-                </nav>
+                <?php include 'navbar.php'; ?>
                 <div class="mobile-menu-toggle" aria-label="Open navigation menu" aria-expanded="false" tabindex="0" role="button">
                     <span></span>
                     <span></span>
@@ -35,20 +57,17 @@
     </header>
 
     <main>
-    <!-- Destination Details Section -->
     <section class="destination-details" aria-label="Destination Details">
         <div class="container">
             <div id="loading" class="loading">Loading destination details...</div>
             
             <div id="destinationContent" style="display: none;">
-                <!-- Breadcrumb -->
                 <nav class="breadcrumb" aria-label="Breadcrumb">
                     <a href="index.php">Home</a> <span>&gt;</span>
-                    <a href="search.html">Search</a> <span>&gt;</span>
+                    <a href="search.php">Search</a> <span>&gt;</span>
                     <span id="destinationName">Destination Name</span>
                 </nav>
 
-                <!-- Hero Section -->
                 <div class="destination-hero">
                     <div class="hero-image">
                         <img id="destinationImage" src="" alt="Destination image">
@@ -65,16 +84,13 @@
                     </div>
                 </div>
 
-                <!-- Main Content -->
                 <div class="destination-content">
                     <div class="content-main">
-                        <!-- Description -->
                         <section class="content-section" aria-label="About This Destination">
                             <h2>About This Destination</h2>
                             <p id="destinationDescription">Loading description...</p>
                         </section>
 
-                        <!-- Key Information -->
                         <section class="content-section" aria-label="Key Information">
                             <h2>Key Information</h2>
                             <div class="info-grid">
@@ -97,7 +113,6 @@
                             </div>
                         </section>
 
-                        <!-- Map Section -->
                         <section class="content-section" aria-label="Location Map">
                             <h2>Location</h2>
                             <div class="map-container">
@@ -113,14 +128,10 @@
                             </div>
                         </section>
 
-                        <!-- Reviews Section -->
                         <div class="content-section">
                             <h2>Reviews</h2>
-                            <div id="reviewsList" class="reviews-list">
-                                <!-- Reviews will be populated by JavaScript -->
-                            </div>
+                            <div id="reviewsList" class="reviews-list"></div>
                             
-                            <!-- Review Form -->
                             <div class="review-form-container modern-review-form">
                                 <h3 class="review-form-title">Share Your Experience</h3>
                                 <p class="review-form-subtitle">Leave a review and help other travelers!</p>
@@ -132,11 +143,11 @@
                                     <div class="form-group">
                                         <label for="reviewRating" class="form-label">Your Rating</label>
                                         <div class="star-rating-input">
-                                            <input type="radio" id="star5" name="reviewRating" value="5" required><label for="star5" title="5 stars">★</label>
-                                            <input type="radio" id="star4" name="reviewRating" value="4"><label for="star4" title="4 stars">★</label>
-                                            <input type="radio" id="star3" name="reviewRating" value="3"><label for="star3" title="3 stars">★</label>
-                                            <input type="radio" id="star2" name="reviewRating" value="2"><label for="star2" title="2 stars">★</label>
-                                            <input type="radio" id="star1" name="reviewRating" value="1"><label for="star1" title="1 star">★</label>
+                                            <input type="radio" id="star5" name="reviewRating" value="5" required><label for="star5">★</label>
+                                            <input type="radio" id="star4" name="reviewRating" value="4"><label for="star4">★</label>
+                                            <input type="radio" id="star3" name="reviewRating" value="3"><label for="star3">★</label>
+                                            <input type="radio" id="star2" name="reviewRating" value="2"><label for="star2">★</label>
+                                            <input type="radio" id="star1" name="reviewRating" value="1"><label for="star1">★</label>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -149,29 +160,29 @@
                         </div>
                     </div>
 
-                    <!-- Sidebar -->
                     <aside class="content-sidebar" aria-label="Sidebar">
-                        <!-- Quick Actions -->
                         <div class="sidebar-section">
                             <h3>Quick Actions</h3>
                             <div class="action-buttons">
-                                <button id="bookmarkBtn" class="btn btn-secondary btn-full">
-                                    <span class="bookmark-icon">♡</span>
-                                    <span class="bookmark-text">Add to Bookmarks</span>
+                                <?php
+                                    $destId = $_GET['id'] ?? 0;
+                                    $isFavorite = in_array((int)$destId, $bookmarkedDestinations);
+                                ?>
+                                <button id="bookmarkBtn" class="btn btn-secondary btn-full<?= $isFavorite ? ' bookmarked' : '' ?>">
+                                    <span class="bookmark-icon"><?= $isFavorite ? '♥' : '♡' ?></span>
+                                    
+                                    <span class="bookmark-text"><?= $isFavorite ? 'Remove Bookmark' : 'Add to Bookmarks' ?></span>
                                 </button>
-                                <a href="search.html" class="btn btn-primary btn-full">Find Similar</a>
+
+                                <a href="search.php" class="btn btn-primary btn-full">Find Similar</a>
                             </div>
                         </div>
 
-                        <!-- Related Destinations -->
                         <section class="sidebar-section" aria-label="Related Destinations">
                             <h3>Related Destinations</h3>
-                            <div id="relatedDestinations" class="related-grid">
-                                <!-- Related destinations will be populated by JavaScript -->
-                            </div>
+                            <div id="relatedDestinations" class="related-grid"></div>
                         </section>
 
-                        <!-- Travel Tips -->
                         <section class="sidebar-section" aria-label="Travel Tips">
                             <h3>Travel Tips</h3>
                             <div class="travel-tips">
@@ -193,48 +204,21 @@
                 </div>
             </div>
 
-            <!-- Error State -->
             <div id="errorState" class="error-state" style="display: none;">
                 <h2>Destination Not Found</h2>
                 <p>The destination you're looking for doesn't exist or has been removed.</p>
-                <a href="search.html" class="btn btn-primary">Browse All Destinations</a>
+                <a href="search.php" class="btn btn-primary">Browse All Destinations</a>
             </div>
         </div>
     </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>TravelGuide</h3>
-                    <p>Your ultimate travel companion for discovering amazing destinations around the world.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="search.html">Search</a></li>
-                        <li><a href="dashboard.php">Dashboard</a></li>
-                        <li><a href="login.php">Login</a></li>
-                        <li><a href="register.php">Register</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Email: 1231300664@student.mmu.edu.my</p>
-                    <p>Phone: +60-11-7002-8006</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 EFHM. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <?php include 'footer.php'; ?>
 
+    <script>
+        window.currentUser = <?php echo isset($_SESSION['username']) ? json_encode($_SESSION['username']) : 'null'; ?>;
+    </script>
     <script src="script.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/destination.js"></script>
 </body>
-</html> 
+</html>

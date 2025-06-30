@@ -1,4 +1,3 @@
-<!-- footer.php -->
 <footer class="footer" role="contentinfo">
     <div class="container">
         <div class="footer-content">
@@ -16,9 +15,12 @@
                 </ul>
             </div>
             <div class="footer-section">
-                <h4>Contact</h4>
-                <p>Email: 1231300664@student.mmu.edu.my</p>
-                <p>Phone: +60-11-7002-8006</p>
+                <h4>Students</h4>
+                <p>1221305738 - Mohamed Doma</p>
+                <p>1231300664 - Fadul Saif</p>
+                <p>1221305737 - Hassan Yasine</p>
+                <p>241UT240SM - Mutaz Kamal</p>
+                <p>Group: WT-2</p>
             </div>
         </div>
         <div class="footer-bottom">

@@ -1,5 +1,3 @@
-/* Dashboard Page Styles */
-
 body, .dashboard-section {
     background: linear-gradient(135deg, #181c2f 0%, #232946 100%) !important;
     color: #f4f4fa;
@@ -11,7 +9,6 @@ body, .dashboard-section {
     padding: 2rem 0;
 }
 
-/* Welcome Section */
 .welcome-section {
     background: linear-gradient(135deg, #5f2c82 0%, #7c3aed 100%);
     color: #fff;
@@ -113,7 +110,6 @@ body, .dashboard-section {
     border-color: #7c3aed !important;
 }
 
-/* Dashboard Grid */
 .dashboard-main-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -127,7 +123,6 @@ body, .dashboard-section {
     gap: 2.5rem;
 }
 
-/* Dashboard Cards */
 .dashboard-card, .stats-card, .activity-card, .recommendations-card, .tips-card, .bookmarks-card {
     background: #fff !important;
     border-radius: 28px;
@@ -146,7 +141,6 @@ body, .dashboard-section {
     letter-spacing: -1px;
 }
 
-/* Stats Card */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -186,7 +180,6 @@ body, .dashboard-section {
     letter-spacing: 1px;
 }
 
-/* Activity Card */
 .activity-list {
     display: flex;
     flex-direction: column;
@@ -230,7 +223,6 @@ body, .dashboard-section {
     margin-top: 0.2rem;
 }
 
-/* Bookmarks Card */
 .bookmarks-card {
     grid-column: 1 / -1;
     margin-bottom: 2.5rem;
@@ -334,7 +326,6 @@ body, .dashboard-section {
     transform: scale(1.1);
 }
 
-/* Searches Card */
 .searches-card {
     grid-column: span 2;
 }
@@ -390,7 +381,6 @@ body, .dashboard-section {
     font-size: 0.8rem;
 }
 
-/* Recommendations Card */
 .recommendations-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -476,7 +466,6 @@ body, .dashboard-section {
     text-decoration: none !important;
 }
 
-/* Tips Card */
 .tips-card {
     min-height: 200px;
 }
@@ -526,7 +515,6 @@ body, .dashboard-section {
     line-height: 1.5;
 }
 
-/* Empty States */
 .empty-state {
     text-align: center;
     padding: 3rem 1rem;
@@ -566,7 +554,6 @@ body, .dashboard-section {
     box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
 }
 
-/* Responsive Design */
 @media (max-width: 900px) {
     .dashboard-main-grid {
         grid-template-columns: 1fr;

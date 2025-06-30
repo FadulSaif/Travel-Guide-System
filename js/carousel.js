@@ -1,5 +1,3 @@
-// Carousel functionality for hero section
-
 class Carousel {
     constructor(container) {
         this.container = container;
@@ -9,7 +7,7 @@ class Carousel {
         this.nextBtn = container.querySelector('.carousel-btn.next');
         this.currentSlide = 0;
         this.slideInterval = null;
-        this.autoPlayDelay = 5000; // 5 seconds
+        this.autoPlayDelay = 5000;
         
         this.init();
     }
@@ -17,7 +15,6 @@ class Carousel {
     init() {
         if (this.slides.length === 0) return;
         
-        // Set up event listeners
         if (this.prevBtn) {
             this.prevBtn.addEventListener('click', () => this.prevSlide());
         }
@@ -26,12 +23,10 @@ class Carousel {
             this.nextBtn.addEventListener('click', () => this.nextSlide());
         }
         
-        // Set up dot navigation
         this.dots.forEach((dot, index) => {
             dot.addEventListener('click', () => this.goToSlide(index));
         });
         
-        // Set up keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') {
                 this.prevSlide();
@@ -40,37 +35,29 @@ class Carousel {
             }
         });
         
-        // Set up touch/swipe support
         this.setupTouchSupport();
         
-        // Start autoplay
         this.startAutoPlay();
         
-        // Pause autoplay on hover
         this.container.addEventListener('mouseenter', () => this.stopAutoPlay());
         this.container.addEventListener('mouseleave', () => this.startAutoPlay());
         
-        // Show first slide
         this.showSlide(0);
     }
     
     showSlide(index) {
-        // Hide all slides
         this.slides.forEach(slide => {
             slide.classList.remove('active');
         });
         
-        // Remove active class from all dots
         this.dots.forEach(dot => {
             dot.classList.remove('active');
         });
         
-        // Show current slide
         if (this.slides[index]) {
             this.slides[index].classList.add('active');
         }
         
-        // Activate current dot
         if (this.dots[index]) {
             this.dots[index].classList.add('active');
         }
@@ -95,7 +82,7 @@ class Carousel {
     }
     
     startAutoPlay() {
-        this.stopAutoPlay(); // Clear any existing interval
+        this.stopAutoPlay();
         this.slideInterval = setInterval(() => {
             this.nextSlide();
         }, this.autoPlayDelay);
@@ -123,22 +110,19 @@ class Carousel {
     }
     
     handleSwipe(startX, endX) {
-        const threshold = 50; // Minimum swipe distance
+        const threshold = 50;
         const diff = startX - endX;
         
         if (Math.abs(diff) > threshold) {
             if (diff > 0) {
-                // Swipe left - next slide
                 this.nextSlide();
             } else {
-                // Swipe right - previous slide
                 this.prevSlide();
             }
         }
     }
 }
 
-// Initialize carousel when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     const carouselContainer = document.querySelector('.carousel');
     if (carouselContainer) {

@@ -38,7 +38,7 @@ if (!isset($_SESSION['user_id'])) {
         <div class="container">
             <div class="welcome-section" aria-label="Welcome">
                 <div class="welcome-content">
-                    <h1>Welcome back, <span id="userName">Traveler</span>! 👋</h1>
+                    <h1>Welcome back, <span><?= htmlspecialchars($_SESSION['user_name']) ?></span>! 👋</h1>
                     <p>Ready to plan your next adventure? Here's what's new for you.</p>
                     <div class="welcome-actions">
                         <a href="search.php" class="btn btn-primary">Explore Destinations</a>

@@ -76,7 +76,6 @@ class RegisterForm {
             return false;
         }
 
-        // Allow letters (Arabic or English), numbers, and spaces
         const allowed = /^[\p{L}\p{N} ]+$/u;
         if (!allowed.test(username)) {
             this.showError(this.usernameInput, 'usernameError', 'Only letters, numbers, and spaces are allowed');
