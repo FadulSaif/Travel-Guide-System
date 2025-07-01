@@ -18,18 +18,17 @@ class Dashboard {
     checkAuthentication() {
         const userData = localStorage.getItem('user');
         if (!userData) {
-            window.location.href = 'login.php';
+            console.warn('No user in localStorage, but session may still be valid.');
             return;
         }
-        
+    
         try {
             this.user = JSON.parse(userData);
         } catch (error) {
             console.error('Error parsing user data:', error);
             localStorage.removeItem('user');
-            window.location.href = 'login.php';
         }
-    }
+    }    
     
     loadUserData() {
         if (this.user) {
