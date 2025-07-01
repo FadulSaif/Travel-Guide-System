@@ -112,7 +112,6 @@ if (!isset($_SESSION['user_id'])) {
     <?php include 'footer.php'; ?>
 
     <script src="script.js"></script>
-    <script src="js/main.js"></script>
     <script src="js/dashboard.js"></script>
 </body>
 </html> 
